@@ -19,6 +19,7 @@ ext{
     navigation_version = '2.4.1'
     rxandroid_version = '2.0.1'
     rxjava_version = '2.2.9'
+    lakecanary_version = '2.8.1'
 }
 
 task clean(type: Delete) {

@@ -5,10 +5,10 @@ interface NavigationContract {
     fun goBack()
 }
 
-interface ViewContract : NavigationContract{
+interface ViewContract : NavigationContract {
 }
 
-interface PresenterContract<T : ViewContract>{
+interface PresenterContract<T : ViewContract> {
     fun attachView(view: T)
     fun onDestroy()
 }
