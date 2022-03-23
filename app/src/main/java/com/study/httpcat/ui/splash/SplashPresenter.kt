@@ -1,17 +1,17 @@
 package com.study.httpcat.ui.splash
 
-import android.os.Handler
-import android.os.Looper
 import com.study.domain.contract.SplashContract
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import java.util.concurrent.TimeUnit
 
 class SplashPresenter : SplashContract.Presenter {
     private var view: SplashContract.View? = null
 
     override fun waitDelay() {
-        Handler(Looper.getMainLooper()).postDelayed(
-            { view?.navigateToNextScreen() },
-            3000L
-        )
+        Completable.timer(5, TimeUnit.SECONDS, AndroidSchedulers.mainThread())
+            .doOnComplete { view?.navigateToNextScreen() }
+            .subscribe()
     }
 
     override fun attachView(view: SplashContract.View) {
